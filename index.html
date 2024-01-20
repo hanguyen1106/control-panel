@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Control Panel</title>
+    </head>
+    <body>
+        <div id="app">
+            <div class="panel">
+                <h1 class="title">Control Panel</h1>
+                <div class="power">
+                    <a class="power-button">On</a>
+                    <a class="power-button">On</a>
+                    <a class="power-button">On</a>
+                </div>
+                <div class="panel-list">
+                    <div class="panel-item">
+                        <div class="item-title">Eco</div>
+                        <div class="panel-toggle">
+                            <div class="button-cover">
+                                <div class="button r" id="button-1">
+                                    <input type="checkbox" class="checkbox" />
+                                    <div class="knobs"></div>
+                                    <div class="layer"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-item">
+                        <div class="item-title">Anion</div>
+                        <div class="panel-toggle">
+                            <div class="button-cover">
+                                <div class="button r" id="button-1">
+                                    <input type="checkbox" class="checkbox" />
+                                    <div class="knobs"></div>
+                                    <div class="layer"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-item">
+                        <div class="item-title">C/F</div>
+                        <div class="panel-toggle">
+                            <div class="button-cover">
+                                <div class="button r" id="button-1">
+                                    <input type="checkbox" class="checkbox" />
+                                    <div class="knobs"></div>
+                                    <div class="layer"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-item">
+                        <div class="item-title">Sleep</div>
+                        <div class="panel-toggle">
+                            <div class="button-cover">
+                                <div class="button r" id="button-1">
+                                    <input type="checkbox" class="checkbox" />
+                                    <div class="knobs"></div>
+                                    <div class="layer"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-item">
+                        <div class="item-title">Health</div>
+                        <div class="panel-toggle">
+                            <div class="button-cover">
+                                <div class="button r" id="button-1">
+                                    <input type="checkbox" class="checkbox" />
+                                    <div class="knobs"></div>
+                                    <div class="layer"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-item">
+                        <div class="item-title">Clean</div>
+                        <div class="panel-toggle">
+                            <div class="button-cover">
+                                <div class="button r" id="button-1">
+                                    <input type="checkbox" class="checkbox" />
+                                    <div class="knobs"></div>
+                                    <div class="layer"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script>
+        const buttons = document.querySelectorAll(".power-button");
+        buttons.forEach((button) => {
+            button.addEventListener("click", (e) => {
+            const isOn = e.target.classList.toggle("on");
+            e.target.innerHTML = isOn ? "Off" : "On";
+            });
+        })
+    </script>
+    <style>
+        * {
+            box-sizing: border-box;
+            h1 {
+                margin: 0;
+                padding: 0;
+            }
+        }
+        body {
+            font-family: Georgia, serif;
+        }
+        #app {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+        }
+        .panel {
+            width: 65%;
+            border-radius: 20px;
+            padding: 16px 24px;
+            height: max-content;
+            background-color: rgb(203 213 225);
+        }
+        .title {
+            font-size: 22px;
+        }
+        .panel-status {
+            margin: 16px 0;
+        }
+        .power {
+            margin: 16px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+        }
+        .panel-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .panel-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+            height: 45px;
+            width: 100%;
+            padding: 16px 0;
+            border-radius: 10px;
+            padding: 0 12px;
+        }
+    </style>
+    <style>
+        .button-cover {
+            background-color: #fff;
+            border-radius: 4px;
+        }
+        .knobs,
+        .layer {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+        .button-cover > .button {
+            position: relative;
+            top: 50%;
+            width: 74px;
+            height: 36px;
+            overflow: hidden;
+        }
+        .button.r,
+        .button.r .layer {
+            border-radius: 100px;
+        }
+        .checkbox {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            opacity: 0;
+            cursor: pointer;
+            z-index: 3;
+        }
+
+        /* Button 1 */
+        #button-1 .knobs:before {
+            content: "YES";
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            width: 20px;
+            height: 10px;
+            color: #fff;
+            font-size: 10px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 1;
+            padding: 9px 4px;
+            background-color: #03a9f4;
+            border-radius: 50%;
+            transition: 0.3s cubic-bezier(0.18, 0.89, 0.35, 1.15) all;
+            z-index: 4;
+        }
+
+        #button-1 .checkbox:checked + .knobs:before {
+            content: "NO";
+            left: 42px;
+            background-color: #f44336;
+            z-index: 4;
+        }
+
+        #button-1 .checkbox:checked ~ .layer {
+            background-color: #fcebeb;
+        }
+
+        #button-1 .layer {
+            background-color: #d1eaf5;
+        }
+
+        #button-1 .knobs,
+        #button-1 .knobs:before,
+        #button-1 .layer {
+            transition: 0.3s ease all;
+        }
+    </style>
+
+    <style>
+        a.power-button {
+            display: flex;
+            width: 60px;
+            height: 60px;
+            font-size: 12px;
+            border: 2px solid #dedede;
+            background-color: #efefef;
+            box-shadow: 0px 0px 40px 1px #ddd inset, 0px 2px 4px rgba(0, 0, 0, 0.4), 1px 1px 4px rgba(0, 0, 0, 0.3),
+                -1px -1px 2px rgba(0, 0, 0, 0.1), -1px 1px 2px rgba(0, 0, 0, 0.1);
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: color 0.8s;
+            transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .power-button.on {
+            background-color: #2ecc71;
+        }
+    </style>
+</html>
