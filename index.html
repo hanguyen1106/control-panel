@@ -275,7 +275,7 @@
     }
 
     /* Button 1 */
-    #button-1 .knobs:before {
+    .button .knobs:before {
         content: "OFF";
         position: absolute;
         top: 4px;
@@ -294,24 +294,24 @@
         z-index: 4;
     }
 
-    #button-1 .checkbox:checked+.knobs:before {
+    .button .checkbox:checked+.knobs:before {
         content: "ON";
         left: 42px;
         background-color: #0cd2f5;
         z-index: 4;
     }
 
-    #button-1 .checkbox:checked~.layer {
+    .button .checkbox:checked~.layer {
         background-color: #fcebeb;
     }
 
-    #button-1 .layer {
+    .button .layer {
         background-color: #d1eaf5;
     }
 
-    #button-1 .knobs,
-    #button-1 .knobs:before,
-    #button-1 .layer {
+    .button .knobs,
+    .button .knobs:before,
+    .button .layer {
         transition: 0.3s ease all;
     }
 </style>
